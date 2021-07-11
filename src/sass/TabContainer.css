@@ -1,0 +1,202 @@
+*, ::before, ::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("../img/pizza-background.jpg");
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0px auto 0px;
+  word-break: break-all;
+  border: 0px solid #191919;
+}
+
+.bloc-tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+}
+
+.tabs {
+  padding: 20px;
+  text-align: center;
+  width: 50%;
+  background: #191919;
+  font-weight: 600;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+  border: 0px solid #191919;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  position: relative;
+  outline: none;
+  overflow: hidden;
+  -webkit-transition: font-size .5s;
+  transition: font-size .5s;
+}
+
+.tabs:not(:last-child) {
+  border-right: 1px solid #191919;
+}
+
+.active-tabs {
+  background: rgba(25, 25, 25, 0.85);
+  color: white;
+  font-size: 29px;
+  border: 0px solid #191919;
+  -webkit-transition: font-size .5s;
+  transition: font-size .5s;
+  height: 4rem;
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 0px solid #191919;
+  top: 0px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0px;
+  height: 5px;
+  background: transparent;
+  -webkit-animation: activeTabsBeforeAnimation 2s ease-in-out forwards;
+          animation: activeTabsBeforeAnimation 2s ease-in-out forwards;
+}
+
+@-webkit-keyframes activeTabsBeforeAnimation {
+  to {
+    width: calc(100% + 2px);
+    background: white;
+  }
+}
+
+@keyframes activeTabsBeforeAnimation {
+  to {
+    width: calc(100% + 2px);
+    background: white;
+  }
+}
+
+button {
+  border: none;
+}
+
+.content-tabs {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.content {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.content .content-title {
+  -webkit-transition: all .7s;
+  transition: all .7s;
+  color: white;
+  font-size: 40px;
+  padding: 5px 0px 5px 0px;
+  margin-bottom: 20px;
+  background-color: linear-gradient(white, green, 0.3);
+  border-radius: 5px;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+}
+
+@-webkit-keyframes titleAnimationIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes titleAnimationIn {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+.content hr {
+  width: 100px;
+  height: 2px;
+  background: #222;
+  margin-bottom: 5px;
+}
+
+.content p {
+  width: 100%;
+  height: 100%;
+}
+
+.active-content {
+  display: block;
+  -webkit-animation: content-animation 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+          animation: content-animation 0.7s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+  position: absolute;
+  z-index: 10;
+}
+
+@-webkit-keyframes content-animation {
+  from {
+    opacity: 0.0;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+@keyframes content-animation {
+  from {
+    opacity: 0.0;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+#HeaderImage {
+  background: transparent;
+  position: absolute;
+  display: block;
+  margin-left: 25%;
+  margin-top: 15%;
+  width: 50%;
+  z-index: 0;
+}
+/*# sourceMappingURL=TabContainer.css.map */

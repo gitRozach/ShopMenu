@@ -1,0 +1,55 @@
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #D05353;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6b6b;
+}
+
+main, body, .App {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.ProductsContainer {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.ProductsCategoryContainer ul {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto auto;
+      grid-template-columns: auto auto auto auto auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  height: 5rem;
+}
+/*# sourceMappingURL=Menu.css.map */
