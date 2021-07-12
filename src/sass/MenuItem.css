@@ -97,16 +97,18 @@
   font-size: 20px;
   margin: 0px 0px 0px 0px;
   text-align: left;
-  -webkit-animation: menuItemContentIn 1s forwards;
-          animation: menuItemContentIn 1s forwards;
+  -webkit-animation: menuItemContentIn 1.2s forwards;
+          animation: menuItemContentIn 1.2s forwards;
 }
 
 @-webkit-keyframes menuItemContentIn {
   from {
+    opacity: 0;
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%);
   }
   to {
+    opacity: 1;
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
   }
@@ -114,10 +116,12 @@
 
 @keyframes menuItemContentIn {
   from {
+    opacity: 0;
     -webkit-transform: translateX(-100%);
             transform: translateX(-100%);
   }
   to {
+    opacity: 1;
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
   }
@@ -149,6 +153,7 @@
   color: silver;
   background: -webkit-gradient(linear, left top, right top, from(#434343), to(#242424));
   background: linear-gradient(to right, #434343, #242424);
+  opacity: 0.6;
   font-size: 15px;
   margin: 0px;
   padding: 10px 20px;
@@ -173,16 +178,18 @@
   background: linear-gradient(to right, #434343, #242424);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
-  -webkit-animation: menuItemPricesIn 1s forwards;
-          animation: menuItemPricesIn 1s forwards;
+  -webkit-animation: menuItemPricesIn 1.2s forwards;
+          animation: menuItemPricesIn 1.2s forwards;
 }
 
 @-webkit-keyframes menuItemPricesIn {
   from {
+    opacity: 0;
     -webkit-transform: translateX(100%);
             transform: translateX(100%);
   }
   to {
+    opacity: 1;
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
   }
@@ -190,10 +197,12 @@
 
 @keyframes menuItemPricesIn {
   from {
+    opacity: 0;
     -webkit-transform: translateX(100%);
             transform: translateX(100%);
   }
   to {
+    opacity: 1;
     -webkit-transform: translateX(0%);
             transform: translateX(0%);
   }
