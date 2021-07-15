@@ -47,6 +47,7 @@ body {
     overflow: hidden;
 
     transition: font-size .5s;
+    z-index: 10;
 }
 
 .tabs:not(:last-child){
@@ -54,7 +55,7 @@ body {
 }
 
 .active-tabs  {
-    background: rgba($black-color, 0.85);
+    background: rgb(39, 39, 39);
     color: white;
     font-size: 29px;
     border: 0px solid $black-color;
@@ -96,7 +97,7 @@ button {
     width: 100%;
     height: 100%;
     display: none;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.0);
 
     .content-title {
         @keyframes titleAnimationIn {
@@ -116,7 +117,6 @@ button {
         font-size: 40px;
         padding: 5px 0px 5px 0px;
         margin-bottom: 20px;
-        background-color: linear-gradient(white, green, 0.3);
         border-radius: 5px;
         
         transform: translateY(0px);
@@ -138,17 +138,17 @@ button {
 .active-content {
     @keyframes content-animation {
         from {
-            opacity: 0.0;
+            transform: translateY(0px);
         }
         
         to {
-            opacity: 1.0;
+            transform: translateY(-100%);
         }
     }
     display: block;
-    animation: content-animation .7s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards;
+    animation: content-animation 8s ease-in-out forwards 3s;
     position: absolute;
-    z-index: 10;
+    z-index: 1;
 }
 
 #HeaderImage {
