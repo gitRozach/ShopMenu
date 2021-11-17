@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import MenuItem from './MenuItem';
-import '../sass/TabContainer.css';
-import anime from 'animejs/lib/anime.es.js'
-import $ from 'jquery';
+import TabButton from './TabButton';
+import './sass/TabContainer.css';
+import anime from 'animejs/lib/anime.es.js';
+import mysql from 'mysql';
 
 function TabContainer(props) {
   let tabIndex = 1;
@@ -10,10 +11,7 @@ function TabContainer(props) {
 
   const [toggleState, setToggleState] = useState(1);
   const [toggleDelay, setToggleDelay] = useState(8000);
-
-  const toggleTab = (index) => {
-    setToggleState(index);
-  };
+  const toggleTab = (index) => setToggleState(index);
 
   function toggleActiveContent(){
     toggleTab(tabIndex);
@@ -41,10 +39,6 @@ function TabContainer(props) {
   function animateMenuTitleOut() {
     anime({
       targets: '.content-title',
-      translateY: {
-        value: ['0px', '100%'],
-        easing: 'easeInOutQuad',
-      },
       opacity: {
         value: [1.0, 0.0],
         easing: 'easeInOutExpo',
@@ -55,36 +49,52 @@ function TabContainer(props) {
 
   useEffect(() => {
     const tabHideInterval = setInterval(() => {
+      var con = mysql.createConnection({
+        host: "localhost",
+        user: "Rozach",
+        password: "irXP9W2297!7",
+        database: "mydb"
+      });
+      
+      con.connect(function(err) {
+        if (err) throw err;
+        console.log("Connected!");
+      });
+    
       toggleActiveContent();
     }, toggleDelay);
 
     return () => clearInterval(tabHideInterval);
-  }, []);
+  }, [toggleDelay]);
 
   return (
     <div className="container">
 
       <div className="bloc-tabs">
 
-        <button
+        <TabButton
+          text="Pizza"
           className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(1)}
-        >Pizza</button>
+        />
 
-        <button
+        <TabButton
+          text="Pizzabrötchen"
           className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(2)}
-        >Pizzabrötchen</button>
+        />
 
-        <button
+        <TabButton
+          text="Calzone"
           className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(3)}
-        >Calzone</button>
+        />
 
-        <button
+        <TabButton
+          text="Getränke"
           className={toggleState === 4 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(4)}
-        >Getränke</button>
+        />
 
       </div>
 

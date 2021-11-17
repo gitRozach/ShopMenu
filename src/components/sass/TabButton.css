@@ -1,0 +1,68 @@
+.tabs {
+  padding: 20px;
+  text-align: center;
+  width: 50%;
+  background: #191919;
+  font-weight: 600;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+  border: 0px solid #191919;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  position: relative;
+  outline: none;
+  overflow: hidden;
+  -webkit-transition: font-size .5s;
+  transition: font-size .5s;
+  z-index: 10;
+}
+
+.tabs:not(:last-child) {
+  border-right: 1px solid #191919;
+}
+
+.active-tabs {
+  background: #272727;
+  color: white;
+  font-size: 29px;
+  border: 0px solid #191919;
+  -webkit-transition: font-size .5s;
+  transition: font-size .5s;
+  height: 4rem;
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 0px solid #191919;
+  top: 0px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0px;
+  height: 5px;
+  background: transparent;
+  -webkit-animation: activeTabsBeforeAnimation 2s ease-in-out forwards;
+          animation: activeTabsBeforeAnimation 2s ease-in-out forwards;
+}
+
+@-webkit-keyframes activeTabsBeforeAnimation {
+  to {
+    width: calc(100% + 2px);
+    background: white;
+  }
+}
+
+@keyframes activeTabsBeforeAnimation {
+  to {
+    width: calc(100% + 2px);
+    background: white;
+  }
+}
+
+button {
+  border: none;
+}
+/*# sourceMappingURL=TabButton.css.map */

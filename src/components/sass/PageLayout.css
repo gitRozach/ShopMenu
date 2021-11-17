@@ -1,0 +1,13 @@
+.PageLayout {
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  overflow-x: hidden;
+  background: rgba(0, 0, 0, 0.35);
+}
+/*# sourceMappingURL=PageLayout.css.map */

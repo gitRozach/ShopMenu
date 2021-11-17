@@ -1,4 +1,4 @@
-import '../sass/MenuItem.css';
+import './sass/MenuItem.css';
 
 function MenuItem(props) {
     let name = props.name;

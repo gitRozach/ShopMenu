@@ -1,13 +1,12 @@
-import '../sass/Menu.css';
+import './sass/Menu.css';
 import TabContainer from './TabContainer';
+import PageLayout from './PageLayout';
 
 function Menu() {
   return (
-    <div className="App">
-      <div className="ProductsContainer">
-        <TabContainer />        
-      </div>
-    </div>
+    <PageLayout 
+      children={<TabContainer />} 
+    />
   );
 }
 
