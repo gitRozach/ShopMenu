@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react';
 import MenuItem from './MenuItem';
-import TabButton from './TabButton';
 import './sass/TabContainer.css';
+import './sass/TabButton.css';
+
 import anime from 'animejs/lib/anime.es.js';
 import mysql from 'mysql';
 
-function TabContainer(props) {
+const MenuButton = (props) => (
+  <button className={props.className} onClick={props.onClick}>{props.text}</button>
+);
+
+const MenuContainer = (props) => {
   let tabIndex = 1;
   let tabCount = 4;
 
@@ -49,18 +54,6 @@ function TabContainer(props) {
 
   useEffect(() => {
     const tabHideInterval = setInterval(() => {
-      var con = mysql.createConnection({
-        host: "localhost",
-        user: "Rozach",
-        password: "irXP9W2297!7",
-        database: "mydb"
-      });
-      
-      con.connect(function(err) {
-        if (err) throw err;
-        console.log("Connected!");
-      });
-    
       toggleActiveContent();
     }, toggleDelay);
 
@@ -72,25 +65,25 @@ function TabContainer(props) {
 
       <div className="bloc-tabs">
 
-        <TabButton
+        <MenuButton
           text="Pizza"
           className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(1)}
         />
 
-        <TabButton
+        <MenuButton
           text="Pizzabrötchen"
           className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(2)}
         />
 
-        <TabButton
+        <MenuButton
           text="Calzone"
           className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(3)}
         />
 
-        <TabButton
+        <MenuButton
           text="Getränke"
           className={toggleState === 4 ? "tabs active-tabs" : "tabs"}
           onClick={() => toggleTab(4)}
@@ -103,9 +96,9 @@ function TabContainer(props) {
           className={toggleState === 1 ? "content  active-content" : "content"}
           id={toggleState === 1 ? "activeContent" : ""}>
           <h2 className="content-title">Pizza</h2>
-          <MenuItem name="Pizza Margherita" description="mit Tomatensauce und Käse" priceName4="klein" priceValue4="4,50€" priceName5="groß" priceValue5="6,00€"/>
-          <MenuItem name="Pizza Salami" description="mit Tomatensauce und Salami" priceName4="klein" priceValue4="5,00€" priceName5="groß" priceValue5="7,00€"/>
-          <MenuItem name="Pizza Tonno" description="mit Tomatensauce und Thunfisch" priceName4="klein" priceValue4="5,50€" priceName5="groß" priceValue5="7,50€"/>
+          <MenuItem name="Pizza Margherita" description="mit Tomatensauce und Käse" prices={[{priceName: "klein", priceValue: "4,50€"}, {priceName: "groß", priceValue: "6,00€"}]} />
+          <MenuItem name="Pizza Salami" description="mit Tomatensauce und Salami" prices={[{priceName: "klein", priceValue: "5,00€"}, {priceName: "groß", priceValue: "7,00€"}]}/>
+          <MenuItem name="Pizza Tonno" description="mit Tomatensauce und Thunfisch" prices={[{priceName: "klein", priceValue: "5,50€"}, {priceName: "groß", priceValue: "7,50€"}]}/>
           <MenuItem name="Pizza Funghi" description="mit Tomatensauce und Champignons" priceName4="klein" priceValue4="5,00€" priceName5="groß" priceValue5="7,00€"/>
           <MenuItem name="Pizza Prociutto" description="mit Tomatensauce und Schinken" priceName4="klein" priceValue4="5,50€" priceName5="groß" priceValue5="7,50€"/>
         </div>
@@ -147,4 +140,4 @@ function TabContainer(props) {
   );
 }
 
-export default TabContainer;
+export default (MenuButton, MenuContainer);

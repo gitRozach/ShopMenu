@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Menu from './components/Menu';
+import ShopMenu from './components/ShopMenu';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Menu />
+    <ShopMenu />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,13 +1,11 @@
-import './sass/Menu.css';
-import TabContainer from './TabContainer';
-import PageLayout from './PageLayout';
+import './sass/PageLayout.css';
 
-function Menu() {
-  return (
-    <PageLayout 
-      children={<TabContainer />} 
-    />
-  );
+function PageLayout(props) {
+    return (
+        <div className="PageLayout">
+            {props.children}
+        </div>
+    );
 }
 
-export default Menu;
+export default PageLayout;
