@@ -1,6 +1,6 @@
 import './sass/Menu.css';
-import TabContainer from './MenuContainer';
-import PageLayout from './Menu';
+import MenuContainer from './MenuContainer';
+import ShopMenuLayout from './ShopMenuLayout';
 
 const ShopMenuWrapper = () => {
 
@@ -8,8 +8,8 @@ const ShopMenuWrapper = () => {
 
 const ShopMenu = () => {
   return (
-    <PageLayout 
-      children={<TabContainer />} 
+    <ShopMenuLayout 
+      children={<MenuContainer />} 
     />
   );
 }

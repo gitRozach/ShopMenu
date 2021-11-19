@@ -16,8 +16,8 @@ const MenuItem = (props) => {
                 
                 <StyledMenuItemPrices>
                     {props.prices?.map(item => <StyledMenuItemPriceItem>
-                        <StyledMenuItemPriceName>{item.priceName}</StyledMenuItemPriceName>
-                        <StyledMenuItemPriceValue>{item.priceValue}</StyledMenuItemPriceValue>
+                        {item.priceName && <StyledMenuItemPriceName>{item.priceName}</StyledMenuItemPriceName>}
+                        {item.priceValue && <StyledMenuItemPriceValue>{item.priceValue}</StyledMenuItemPriceValue>}
                    </StyledMenuItemPriceItem>)}
                 </StyledMenuItemPrices>
                 

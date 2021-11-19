@@ -4,7 +4,6 @@ import './sass/TabContainer.css';
 import './sass/TabButton.css';
 
 import anime from 'animejs/lib/anime.es.js';
-import mysql from 'mysql';
 
 const MenuButton = (props) => (
   <button className={props.className} onClick={props.onClick}>{props.text}</button>
@@ -15,10 +14,10 @@ const MenuContainer = (props) => {
   let tabCount = 4;
 
   const [toggleState, setToggleState] = useState(1);
-  const [toggleDelay, setToggleDelay] = useState(8000);
+  const [toggleDelay] = useState(8000);
   const toggleTab = (index) => setToggleState(index);
 
-  function toggleActiveContent(){
+  function toggleActiveContent() {
     toggleTab(tabIndex);
     tabIndex += 1;
     if (tabIndex > tabCount) tabIndex = 1;
@@ -58,7 +57,7 @@ const MenuContainer = (props) => {
     }, toggleDelay);
 
     return () => clearInterval(tabHideInterval);
-  }, [toggleDelay]);
+  }, [toggleDelay, toggleActiveContent]);
 
   return (
     <div className="container">
@@ -99,40 +98,40 @@ const MenuContainer = (props) => {
           <MenuItem name="Pizza Margherita" description="mit Tomatensauce und Käse" prices={[{priceName: "klein", priceValue: "4,50€"}, {priceName: "groß", priceValue: "6,00€"}]} />
           <MenuItem name="Pizza Salami" description="mit Tomatensauce und Salami" prices={[{priceName: "klein", priceValue: "5,00€"}, {priceName: "groß", priceValue: "7,00€"}]}/>
           <MenuItem name="Pizza Tonno" description="mit Tomatensauce und Thunfisch" prices={[{priceName: "klein", priceValue: "5,50€"}, {priceName: "groß", priceValue: "7,50€"}]}/>
-          <MenuItem name="Pizza Funghi" description="mit Tomatensauce und Champignons" priceName4="klein" priceValue4="5,00€" priceName5="groß" priceValue5="7,00€"/>
-          <MenuItem name="Pizza Prociutto" description="mit Tomatensauce und Schinken" priceName4="klein" priceValue4="5,50€" priceName5="groß" priceValue5="7,50€"/>
+          <MenuItem name="Pizza Funghi" description="mit Tomatensauce und Champignons" prices={[{priceName: "klein", priceValue: "5,00€"}, {priceName: "groß", priceValue: "7,00€"}]}/>
+          <MenuItem name="Pizza Prociutto" description="mit Tomatensauce und Schinken" prices={[{priceName: "klein", priceValue: "5,50€"}, {priceName: "groß", priceValue: "7,50€"}]}/>
         </div>
 
         <div 
           className={toggleState === 2 ? "content  active-content" : "content"}
           id={toggleState === 2 ? "activeContent" : ""}>
           <h2 className="content-title">Pizzabrötchen</h2>
-          <MenuItem name="Pizzabrötchen mit Kräuterbutter" description="Wahl aus: mit Aioli oder mit Kräuterbutter." priceName5="8x" priceValue5="5,00€"/>
-          <MenuItem name="Pizzabrötchen mit Salami und Käse" description="Wahl aus: mit Aioli, mit Kräuterbutter, mit Ananas, mit Artischocken, mit Barbecuesauce und mehr." priceName5="8x" priceValue5="6,00€"/>
-          <MenuItem name="Pizzabrötchen mit Schinken und Käse" description="Wahl aus: mit Aioli, mit Kräuterbutter, mit Ananas, mit Artischocken, mit Barbecuesauce und mehr." priceName5="8x" priceValue5="6,50€"/>
-          <MenuItem name="Pizzabrötchen mit Dönerfleisch und Käse" description="Wahl aus: mit Aioli, mit Kräuterbutter, mit Ananas, mit Artischocken, mit Barbecuesauce und mehr." priceName5="8x" priceValue5="6,00€"/>
-          <MenuItem name="Pizzabrötchen mit Schafskäse und Käse" description="Wahl aus: mit Aioli, mit Kräuterbutter, mit Ananas, mit Artischocken, mit Barbecuesauce und mehr." priceName5="8x" priceValue5="6,50€"/>
+          <MenuItem name="Pizzabrötchen mit Kräuterbutter" description="Wahl aus: mit Aioli oder mit Kräuterbutter." prices={[{priceName: "8x", priceValue: "5,00€"}]}/>
+          <MenuItem name="Pizzabrötchen mit Salami und Käse" description="Wahl aus: mit Aioli, mit Kräuterbutter, mit Ananas, mit Artischocken, mit Barbecuesauce und mehr." prices={[{priceName: "8x", priceValue: "6,00€"}]}/>
+          <MenuItem name="Pizzabrötchen mit Schinken und Käse" description="Wahl aus: mit Aioli, mit Kräuterbutter, mit Ananas, mit Artischocken, mit Barbecuesauce und mehr." prices={[{priceName: "8x", priceValue: "6,50€"}]}/>
+          <MenuItem name="Pizzabrötchen mit Dönerfleisch und Käse" description="Wahl aus: mit Aioli, mit Kräuterbutter, mit Ananas, mit Artischocken, mit Barbecuesauce und mehr." prices={[{priceName: "8x", priceValue: "6,00€"}]}/>
+          <MenuItem name="Pizzabrötchen mit Schafskäse und Käse" description="Wahl aus: mit Aioli, mit Kräuterbutter, mit Ananas, mit Artischocken, mit Barbecuesauce und mehr." prices={[{priceName: "8x", priceValue: "6,50€"}]}/>
         </div>
 
         <div 
           className={toggleState === 3 ? "content  active-content" : "content"}
           id={toggleState === 3 ? "activeContent" : ""}>
           <h2 className="content-title">Calzone</h2>
-          <MenuItem name="Calzone" description="mit Hähnchen-Dönerfleisch und Peperoni" priceValue5="5,00€"/>
-          <MenuItem name="Calzone Schinken" description="mit Schinken, Champignons, Paprika und Käse" priceValue5="6,00€"/>
-          <MenuItem name="Calzone Spezial" description="mit drei Zutaten nach Wahl" priceValue5="6,50€"/>
+          <MenuItem name="Calzone" description="mit Hähnchen-Dönerfleisch und Peperoni" prices={[{priceName: null, priceValue: "5,00€"}]}/>
+          <MenuItem name="Calzone Schinken" description="mit Schinken, Champignons, Paprika und Käse" prices={[{priceName: null, priceValue: "6,00€"}]}/>
+          <MenuItem name="Calzone Spezial" description="mit drei Zutaten nach Wahl" prices={[{priceName: null, priceValue: "6,50€"}]}/>
         </div>
 
         <div 
           className={toggleState === 4 ? "content  active-content" : "content"}
           id={toggleState === 4 ? "activeContent" : ""}>
           <h2 className="content-title">Getränke</h2>
-          <MenuItem name="Coca-Cola" description="Mehrweg" priceName4="0,33l" priceValue4="1,50€"  priceName5="1,0l" priceValue5="2,50€"/>
-          <MenuItem name="Coca-Cola light" description="Mehrweg" priceName4="0,33l" priceValue4="1,50€"  priceName5="1,0l" priceValue5="2,50€"/>
-          <MenuItem name="Coca-Cola zero" description="Mehrweg" priceName4="0,33l" priceValue4="1,50€"  priceName5="1,0l" priceValue5="2,50€"/>
-          <MenuItem name="Mezzo Mix" description="Mehrweg" priceName4="0,33l" priceValue4="1,50€"  priceName5="1,0l" priceValue5="2,50€"/>
-          <MenuItem name="Fanta" description="Mehrweg" priceName4="0,33l" priceValue4="1,50€"  priceName5="1,0l" priceValue5="2,50€"/>
-          <MenuItem name="Sprite" description="Mehrweg" priceName4="0,33l" priceValue4="1,50€"  priceName5="1,0l" priceValue5="2,50€"/>
+          <MenuItem name="Coca-Cola" description="Mehrweg" prices={[{priceName: "0,33l", priceValue: "1,40€"}, {priceName: "1,0l", priceValue: "2,50€"}]}/>
+          <MenuItem name="Coca-Cola light" description="Mehrweg" prices={[{priceName: "0,33l", priceValue: "1,40€"}, {priceName: "1,0l", priceValue: "2,50€"}]}/>
+          <MenuItem name="Coca-Cola zero" description="Mehrweg" prices={[{priceName: "0,33l", priceValue: "1,40€"}, {priceName: "1,0l", priceValue: "2,50€"}]}/>
+          <MenuItem name="Mezzo Mix" description="Mehrweg" prices={[{priceName: "0,33l", priceValue: "1,40€"}, {priceName: "1,0l", priceValue: "2,50€"}]}/>
+          <MenuItem name="Fanta" description="Mehrweg" prices={[{priceName: "0,33l", priceValue: "1,40€"}, {priceName: "1,0l", priceValue: "2,50€"}]}/>
+          <MenuItem name="Sprite" description="Mehrweg" prices={[{priceName: "0,33l", priceValue: "1,40€"}, {priceName: "1,0l", priceValue: "2,50€"}]}/>
         </div>
 
       </div>
