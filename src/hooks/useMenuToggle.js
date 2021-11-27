@@ -3,7 +3,7 @@ import anime from 'animejs/lib/anime.es.js';
 
 const useMenuToggle = () => {
     
-    const tabCount = 4;
+    const tabCount = 2;
 
     const [toggleState, setToggleState] = useState(1);
     const [toggleDelay] = useState(7000);
@@ -15,8 +15,8 @@ const useMenuToggle = () => {
             setToggleState(toggleState + 1);
         }
         
-        animateMenuItemsOut();
-        animateMenuTitleOut();
+        // animateMenuItemsOut();
+        // animateMenuTitleOut();
     }
 
     function animateMenuItemsOut() {
